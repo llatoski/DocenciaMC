@@ -11,16 +11,16 @@
 /****************************************************************
  *                            DEFINITIONS                      
  ***************************************************************/
-#define L           20
+#define L           64
 #define J           1.
 #define L2          (L*L)
 #define K           1
-#define T           1.1
-#define MCS_EQ      100000
+#define T           0.75
+#define MCS_EQ      1
 #define MCSTEPS     1000000
 #define SAMPLES     1
 #define PRODUCTION  1
-#define Q           2
+#define Q           4
 /***************************************************************
  *                            FUNCTIONS                       
  **************************************************************/
@@ -52,6 +52,7 @@ int main(void){
       fprintf(fp3,"%d %.6f %.6f\n", i,(double)Et/L2,(double)M/L2);
       hist[Et+L2*L2]++;
       hist2[M+L2]++;
+      vizualizacao();
     }
     for(int i = 0; i < L2*L2; i++){
       if(hist[i]!=0)fprintf(fp1,"%d %d\n",i-L2*L2,hist[i]);
